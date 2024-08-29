@@ -22,7 +22,7 @@ agencia = '0001'
 
 
 
-def deposito(saldo_func,valor_func,extrato_func,/):
+def deposito(saldo_func,valor_func,extrato_func):
 
     if valor_func > 0:
         saldo_func += valor_func
