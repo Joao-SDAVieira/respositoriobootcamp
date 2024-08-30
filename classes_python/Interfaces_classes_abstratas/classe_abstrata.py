@@ -1,5 +1,3 @@
-from ab
-
 class ControleRemoto:
     
     def ligar (self):
