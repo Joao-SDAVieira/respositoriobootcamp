@@ -21,7 +21,7 @@ class LavaLoucas(MaquinaLavar,Pia):
         self.secagem = secagem
         self.humidecer_sujeira = humidecer_sujeira
         self.economizar_energia = economizar_energia
-        super.__init__(**kwargs)
+        super(MaquinaLavar).__init__(**kwargs)
         
         
     def printar(self):

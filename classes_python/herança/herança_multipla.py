@@ -1,6 +1,3 @@
-from traceback import print_tb
-
-
 class Animal:
     def __init__(self,nro_patas):
         self.nro_patas = nro_patas

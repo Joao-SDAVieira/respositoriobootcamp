@@ -1,0 +1,109 @@
+O mongo DB utiliza documentos ao invés de tabelas
+Cada documento deve possuir um identificador único (id) que convencionalmente é chamado de "_id"
+É possível ter mais de um database, cada database é formado por coleções onde cada coleção possui documentos dentro de si
+os documentos são armazenados em formato BSON (Binary JSON) composto por chave e valor
+Cada documento tem um tamanho máximo de 16MB 
+No mongo db é possível fazer alinhamento de documentos, ou seja, um documento ser o valor de uma chave do documento
+Tipos de dados:
+String = Texto
+Number = Numeros
+Boolean = Boleano
+Date = Data completa, data com hora, etc.
+Null = Vazio
+Objectid = identificador único
+Array
+Documento Embutido = Um Json dentro de outro
+Referência = apesar do MongoDB não garantir integridade referencial é possível colocar uma chave como referência (parecido com chave estrangeira)
+GeoJSON = Armazenar coordenadas, permite executar querys relacionadas com o tema
+
+
+exemplo:
+documento usuarios
+
+{
+"_id":1,
+"nome":"Pâmela Apolinário",
+"idade": 30,
+"data_nascimento": "1992-10-05",
+"endereco": "Via Orlando Jose Scutti, 245...",
+"enderecos":[{
+"logradouro": "Vila Orlando",
+"numero": 123,
+"bairro": "Park Imperador",
+"cidade" : "Araraquara"
+}],
+"interesses": ["kart", "culinaria"],
+"reservas": [1,2]
+}
+
+documento destino
+
+{
+"_id":1,
+"nome":"Parque Ibirapuera",
+"descricao":"Principal parque de São Paulo",
+"localizacao":{
+"type": 'Point',
+"coordinates": [- 46.6576, -23.5874]
+}
+}
+
+Operações/comandos MongoDB
+
+Criando ou usando um database
+
+use {{nome_do_banco}}
+
+Criando uma collection
+
+db.createCollection("nome_da_colecao")
+
+Inserindo documentos
+
+db.usuarios.insertOne({documento_em_estrutura_jason_a_ser_inserido})
+
+ou
+
+-- a diferença entre eles é que o many sempre receberá uma lista de documentos enquanto o one apenas um documento
+db.usuarios.insertMany([{}])
+
+Consultando Documentos 
+
+Vai procurar todas as ocorrencias daquele documento ou apenas a chave com aquele valor específico,trazendo todas as ocorrencias
+desse 
+db.usuarios.find({})
+
+Fará o mesmo só que trazendo apenas uma ocorrencia
+db.usuarios.findOne({})
+
+Utilizado junto com o set, vai realizar a alteração que foi passada
+db.usuarios.findOneAndUpdate({})
+
+exemplo
+
+db.usuarios.findOneAndUpdate({"nome":"Alberto"}, {$set:{"nome":"Adalberto"}})
+
+db.usuarios.findOneAndDelete({"nome":"Alberto"}, {"nome":"Adalberto"})
+
+da mesma forma pode-se user updateOne para fazer a mesma coisa
+
+db.usuarios.updateOne({"nome":"Alberto"}, {$set:{"nome":"Adalberto"}})
+
+ou com many
+
+db.usuarios.updateMany({"nome":"Alberto"}, {$set:{"nome":"Adalberto"}})
+
+também é possível incrementar em dados numéricos exemplo
+
+db.usuarios.updateMany({"nome":"Alberto"}, {$inc:{"idade":2}}) --será incrementado 2 a idade (idade+2)
+
+Excluindo Documentos
+
+db.usuarios.deleteOne
+
+Operadores de Update 
+$inc
+$push
+$set
+$unset
+$rename

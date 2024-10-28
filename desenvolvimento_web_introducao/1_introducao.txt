@@ -1,0 +1,67 @@
+internet - rede externa, acesso publico
+intranet - rede privada, acesso apenas local, aplicações empresariais por exemplo
+
+Funcionamento de um website
+
+1 - Solicitação do usuário: Inserção do URL
+
+2 - Resolução do DNS: O URL é identificado por um IP através do protocolo DNS
+
+3 - Conexão com o servidor: O navegador através do endereço IP estabelece conexão com o servidor do site
+
+4 - Resposta do servidor: O servidor processa a solicitação HTTP e envia de volta os arquivos de front (HTML,CSS e JS)
+
+5 - Renderização no navegador: O navegador interpreta esses arquivos e exibe para o usuário
+
+
+SSL/TLS -  Certificados de segurança do site
+
+API - É um intermédio entre o back e o front, onde é determinado como os dados serão acessados e o que será retornado
+a api também padroniza a forma de acesso e retorno dos dados
+
+
+API é uma forma de disponibilizar os dados de input e output de um determinado sistema
+
+Tipos de API:
+
+API RESTful:
+APIs que seguem os padrões REST (Representational State Transfer). São baseadas em HTTP e utilizadas para interações web
+Possui:
+Metodos http (GET, POST, PUT, DELETE) para operações CRUD
+Curva de aprendizado menor 
+Fácil de implementar
+
+----estudar---- os códigos de status http, ex: 200 = OK
+
+API SOAP:
+
+SOAP (Simple Object Acess Protocol) é um protocolo que define um padrão para troca de mensagens XML
+SOAP é mais padronizado e especificado e não precisa de protocolo HTTP
+Características:
+protocolo baseado em XML
+independente de linguagem e plataforma de transporte
+suporte para operações complexas e segurança avançada
+ 
+API GraphQL
+Uma linguagem de consulta para sua API, um servidor capaz de executar essas consultas, retornando apenas os dados especificados
+Características:
+Permite que os clientes especifiquem exatamente quais dados qurem
+Eficiente na redução de solicitações e no tamanho dos dados transferidos
+Flexivel e fortemente tipada, facilitando a evolução de APIs
+
+Qual tipo certo de API escolher?
+Varia com base nos recursos disponíveis, das necessidades específicas do projeto e da dominância da equipe dos tipos de API
+
+Geralmente, RESTful é mais popular pela simplicidade, SOAP é preferido para segurança e complexidade, enquanto GraphQL é 
+ideal para aplicações que requerem dados dinâmicos 
+Também é possível ter mais de um tipo de API na sua aplicação
+
+Verbos HTTP em APIs RESTful
+
+Cada verbo do HTTP está conectado a uma letra do CRUD
+verbo GET = R do cRud, ou seja, READ
+POST = para criação 
+PUT/PATCH = para atualização 
+DELETE = remoção 
+
+Essas convenções são fundamentais para uma API bem projetada

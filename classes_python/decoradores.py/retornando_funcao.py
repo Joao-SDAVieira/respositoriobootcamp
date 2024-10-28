@@ -1,5 +1,3 @@
-from struct import calcsize
-
 
 def calculadora(operacao):
     def soma(a,b):

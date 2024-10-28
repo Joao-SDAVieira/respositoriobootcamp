@@ -1,0 +1,1 @@
+lista = ['sad','sad','fg']
